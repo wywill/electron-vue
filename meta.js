@@ -147,9 +147,9 @@ module.exports = {
       let dependencies = {
         'axios': '^0.18.0',
         'vue-electron': '^1.0.6',
-        'vue-router': '^3.0.1',
-        'vuex': '^3.0.1',
-        'vuex-electron': '^1.0.0'
+        'vue-router': '^3.0.6',
+        'vuex': '^3.1.0',
+        'vuex-electron': '^1.0.3'
       }
 
       if (Object.keys(plugins).length > 0) output += ',\n'

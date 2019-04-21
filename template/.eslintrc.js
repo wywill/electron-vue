@@ -1,26 +1,30 @@
 module.exports = {
-  root: true,
-  parser: 'babel-eslint',
-  parserOptions: {
-    sourceType: 'module'
-  },
   env: {
-    browser: true,
-    node: true
+      browser: true,
+      es6: true,
+      node: true
   },
   {{#if_eq eslintConfig 'standard'}}
-  extends: 'standard',
+  extends: [
+      "eslint:recommended",
+      "plugin:vue/essential"
+  ],
   {{/if_eq}}
   {{#if_eq eslintConfig 'airbnb'}}
   extends: 'airbnb-base',
   {{/if_eq}}
   globals: {
-    __static: true
+      Atomics: "readonly",
+      SharedArrayBuffer: "readonly"
+  },
+  parserOptions: {
+      ecmaVersion: 2018,
+      sourceType: "module"
   },
   plugins: [
-    'html'
+      "html", "vue"
   ],
-  'rules': {
+  rules: {
     {{#if_eq eslintConfig 'standard'}}
     // allow paren-less arrow functions
     'arrow-parens': 0,
@@ -39,4 +43,4 @@ module.exports = {
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
   }
-}
+};
